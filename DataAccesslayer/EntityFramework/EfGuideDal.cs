@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccesslayer.EntityFramework
 {
-    internal class EfGuideDal : GenericRepository<Guide>, IGuideDal
+    public class EfGuideDal : GenericRepository<Guide>, IGuideDal
     {
     }
 }
