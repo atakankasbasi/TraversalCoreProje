@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace DataAccesslayer.Abstract
 {
-    public interface IGuideService : IGenericService<Guide>
+    public interface ICommentDal: IGenericDal<Comment>
     {
+
     }
 }
