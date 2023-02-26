@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccesslayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
@@ -13,16 +15,34 @@ namespace TraversalCoreProje.Areas.Member.Controllers
     {
         DestinationManager _destinationManager = new DestinationManager(new EfDestinationDal());
         ReservartionManager reservartionManager = new ReservartionManager(new EfReservationDal());
-        public IActionResult MyCurrentReservation()
+
+        private readonly UserManager<AppUser> _userManager;
+
+        public ReservationController(UserManager<AppUser> userManager)
         {
-            return View();
+            _userManager = userManager;
         }
 
-        public IActionResult MyOldReservation()
+        public async Task<IActionResult>  MyCurrentReservation()
         {
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservartionManager.GetListWithReservationByAccepted(values.Id);
+            return View(valuesList);
         }
 
+        public async Task<IActionResult> MyOldReservation()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservartionManager.GetListWithReservationByPrevious(values.Id);
+            return View(valuesList);
+        }
+
+        public async Task<IActionResult> MyApprovalReservation()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservartionManager.GetListWithReservationByWaitApproval(values.Id);
+            return View(valuesList);
+        }
 
         [HttpGet]
 
