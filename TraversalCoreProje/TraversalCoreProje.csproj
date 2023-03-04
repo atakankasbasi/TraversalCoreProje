@@ -5,10 +5,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Shared\Components2\**" />
+    <Content Remove="Views\Shared\Components2\**" />
+    <EmbeddedResource Remove="Views\Shared\Components2\**" />
+    <None Remove="Views\Shared\Components2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Shared\_AdminDashboardLayout.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\AdminDashboardLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\Destination\AddDestination.cshtml" />
+    <None Include="Areas\Admin\Views\Destination\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Destination\UpdateDestination.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewImports.cshtml" />
+    <None Include="Views\Shared\Components\_AdminDashboardHeader\Default.cshtml" />
+    <None Include="Views\Shared\Components\_AdminGuideList\Default.cshtml" />
+    <None Include="Views\Shared\Components\_Cards1Statistic\Default.cshtml" />
+    <None Include="Views\Shared\Components\_Cards2Statistics\Default.cshtml" />
+    <None Include="Views\Shared\Components\_DashboardBanner\Default.cshtml" />
+    <None Include="Views\Shared\Components\_DestinationStatistic2\Default.cshtml" />
+    <None Include="Views\Shared\Components\_DestinationStatistic\Default.cshtml" />
+    <None Include="Views\Shared\Components\_TotalRevenue\Default.cshtml" />
     <None Include="wwwroot\sneat-1.0.0\.browserslistrc" />
     <None Include="wwwroot\sneat-1.0.0\.eslintignore" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue-comment.yml" />
@@ -206,7 +233,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Member\Data\" />
   </ItemGroup>
 
